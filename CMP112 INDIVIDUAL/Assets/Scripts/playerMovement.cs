@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     //Crouch & Slide
     private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
     private Vector3 playerScale;
-    public float slideForce = 400;
+    public float slideForce = 500;
     public float slideCounterMovement = 0.2f;
 
     //Jumping
@@ -190,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 rot = playerCam.transform.localRotation.eulerAngles;
         desiredX = rot.y + mouseX;
 
-        //Rotate, and also make sure we dont over- or under-rotate.
+        //Rotate
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
