@@ -5,7 +5,13 @@ using UnityEngine;
 
 public class grappleScript : MonoBehaviour
 {
+    // Audio
+    private AudioSource source;
+    public AudioClip grappleSound;
+    public float lowPitch = 0.0f;
+    public float highPitch = 5.0f;
 
+    // Grapple
     private LineRenderer lr;
     private Vector3 grapplePoint;
     public Transform tip;
@@ -15,8 +21,9 @@ public class grappleScript : MonoBehaviour
     private float maxDistance = 100f;
     private SpringJoint joint;
 
-    void Awake()
+    void Start()
     {
+        source = GetComponent<AudioSource>();
         lr = GetComponent<LineRenderer>();
     }
 
@@ -57,6 +64,8 @@ public class grappleScript : MonoBehaviour
             joint.massScale = 4.5f;
 
             lr.positionCount = 2;
+            source.PlayOneShot(grappleSound, 1.0f);
+            source.pitch = Random.Range(lowPitch, highPitch);
         }
     }
 
