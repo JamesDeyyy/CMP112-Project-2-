@@ -5,8 +5,13 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI timerText;
-    float elapsedTime;
+    public TextMeshProUGUI timerText;
+    private float elapsedTime;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Update is called once per frame
     void Update()

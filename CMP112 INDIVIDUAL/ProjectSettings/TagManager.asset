@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Death
   - Win
+  - Coin
   layers:
   - Default
   - TransparentFX
